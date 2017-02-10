@@ -6521,6 +6521,7 @@ hr {
 }
 .docs-nav .container .navbar-brand {
   margin: 12px 0 0;
+  margin-left:15px;
   width: 100px;
   padding: 0;
 }
@@ -7068,6 +7069,32 @@ td.hidden-lg {
   th.hidden-lg.hidden-xs,
   td.hidden-lg.hidden-xs {
     display: none !important;
+  }
+
+  /*selfadded css*/
+  .docs-header{
+    padding-top:15px;
+    padding-bottom:30px;
+  }
+  .docs-header .container,.banner .container{
+    padding-left:0;
+    padding-right:0;
+  }
+  .docs-header .container h1{
+    font-size: 32px;
+  }
+  .docs-content{
+    padding-left:15px;
+    padding-right:15px;
+  }
+  .docs-content h1{
+    font-size: 18px;
+  }
+  .home h2{
+    font-size: 18px;
+  }
+  .home ul {
+      padding-left: 0;
   }
 }
 @media (min-width: 768px) and (max-width: 991px) {
