@@ -15,7 +15,7 @@ First POST build by Jekyll.
 
 引言
 ------------------------
-无论是学习还是生活，总会有一些喜闻乐见的事情，羞于当面分享，却又难以忘怀，或许记录下来是一个不错的选择。原先是写日记，现今互联网时代到来，撰写文章发布到网上可能更好。之前尝试过QQ空间、新浪博客、印象笔记等一些方式，简单的记录一些信息是足够了，但是对于一个有追求有想法有个性的人来说未必达到想要的效果。然而申请域名建立个人网站又有一定的技术要求且需要部分成本。那么下面将要介绍的方法就很合适了，在一定程度上可以满足各种需求。
+无论是学习还是生活，总会有一些喜闻乐见的事情，羞于当面分享，却又难以忘怀，或许记录下来是一个不错的选择。原先是写日记，现今互联网时代到来，撰写文章发布到网上可能更好。之前尝试过QQ空间、新浪博客、印象笔记、简书等一些方式，简单的记录一些信息是足够了，但是对于一个有追求有想法有个性的人来说未必达到想要的效果。然而申请域名建立个人网站又有一定的技术要求且需要部分成本。那么下面将要介绍的方法就很合适了，在一定程度上可以满足各种需求。
 借助 GitHub 和 Jekyll，我们可以打造自己的独立博客，并且拥有绝对的管理权限，可以自由地定制网站的风格，并且这一切都是免费的。对于自己没有服务器的同学来是说这是一个不错的选择。
 
 介绍
@@ -35,16 +35,18 @@ GitHub 提供了一种功能，叫GitHub Pages,允许站内生成网页，拥有
 
 
 ```bash
-~ $ gem install jekyll
-~ $ jekyll new myblog
-~ $ cd myblog
-~/my-awesome-site $ jekyll serve
-# => Now browse to http://localhost:4000
+$ gem install jekyll
+$ jekyll new myblog
+$ cd myblog
+$ jekyll server
 ```
+
 在浏览器输入：[http://localhost:4000],立即就能看到默认的博客效果了。
+
 ![默认界面]({{ '/styles/images/myblog.jpg' | prepend: site.baseurl  }})
+
 是不是很简单，如果不想使用默认的界面，还可以自行搭建或者在[jekyll-theme](http://jekyllthemes.org/)网站上查找自己喜欢的theme进行更改。
-此时博客搭建过程基本完成，博客已经具备分类归档，文章目录，代码高亮一些基本的功能。当然，如果还需要一些动态的交互功能，如列表分页，热门推荐，文章搜索，文章评论等，我们可以借助第三方插件安装到_plugins文件夹进行设置，如借助[disqus](http://disqus.com/)、[duoshuo](http://dev.duoshuo.com/)之类的评论系统实现评论功能。
+此时博客搭建过程基本完成，博客已经具备分类归档，文章目录，代码高亮一些基本的功能。当然，如果还需要一些动态的交互功能，如列表分页，热门推荐，文章搜索，文章评论，访问统计等，我们可以借助第三方插件安装到_plugins文件夹进行设置，如借助[disqus](http://disqus.com/)、[duoshuo](http://dev.duoshuo.com/)之类的评论系统实现评论功能。
 
 -文档目录
 
@@ -62,7 +64,7 @@ GitHub 提供了一种功能，叫GitHub Pages,允许站内生成网页，拥有
 |   ├── post.html
 |   └── page.html
 ├── _posts
-|   └── 2016-10-08-welcome-to-jekyll.markdown
+|   └── 2014-11-17-welcome-to-jekyll.markdown
 ├── _sass
 |   ├── _base.scss
 |   ├── _layout.scss
@@ -73,6 +75,7 @@ GitHub 提供了一种功能，叫GitHub Pages,允许站内生成网页，拥有
 ├── feed.xml
 └── index.html
 ```
+
 其实现原理其实是通过模板将使用Markdown或者一些标记语言编写的文章转化成静态的html页面，通过_config.yml文件可以实现基本的配置，文档目录结构中的文件具体作用请参考[官方文档](http://jekyll.com.cn/docs/structure/)。
 
 
