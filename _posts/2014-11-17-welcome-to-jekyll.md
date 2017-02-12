@@ -80,6 +80,7 @@ GitHub 提供了一种功能，叫GitHub Pages,允许站内生成网页，拥有
 
 
 _posts文件夹下的.markdown或者.md后缀文件为文章的源文件，其文件名必须为"年-月-日-文章标题.后缀名"格式，内容如下：
+
 ```html
 ---
 layout: default
@@ -89,19 +90,21 @@ title: hello jekyll
 <p>我的第一篇文章</p>
 <p>{{ page.date | date_to_string }}</p>
 ```
-每篇文章的头部，必须有一个yaml文件头，用三根短划线"---"标记开始和结束,用来设置一些元数据。其中可以设置文章所属分类及标签信息。此处"layout:default"，表示该文章的模板使用_layouts目录下的default.html文件；"title: hello jekyll"，表示该文章的标题是"hello jekyll"，如果不设置这个值，默认使用嵌入文件名的标题，即"hello world"。yaml文件头后面，就是文章的正式内容，里面可以使用模板变量。{{ page.title }}就是文件头中设置的"你好，世界"，{{ page.date }}则是嵌入文件名的日期（也可以在文件头重新定义date变量），"| date_to_string"表示将page.date变量转化成人类可读的格式。
+
+每篇文章的头部，必须有一个yaml文件头，用三根短划线"---"标记开始和结束,用来设置一些元数据。其中可以设置文章所属分类及标签信息。yaml文件头后面，就是文章的正式内容。
 
 -发布文章
 
-
 通过git版本管理工具我们可以实现myblog的远程同步。
 首先我们将blog部署到 Github Page 。前提是拥有github账号，第一步创建一个跟你账户名一样的仓库，仓库名为 username.github.io，接着我们把刚才建立的 myblog 项目 push 到 username.github.io仓库里去（username指的是你的github用户名）。
+
 ```bash
 $ git add .
 $ git commit -m "first post"
 $ git remote add origin git@github.com:username/username.github.io.git
 $ git push -u origin master
 ```
+
 现在检查你远端仓库已经跟你本地 myblog 同步了，然后你在浏览器里输入 username.github.io ，就可以访问博客了。
 
 -补充一句
