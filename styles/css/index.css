@@ -7084,6 +7084,9 @@ td.hidden-lg {
     padding-left:15px;
     padding-right:15px;
   }
+  .docs-content img{
+    max-width:100%;
+  }
   .docs-content h1{
     font-size: 22px;
   }
