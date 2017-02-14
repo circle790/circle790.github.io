@@ -2,8 +2,8 @@
 layout: post
 title:  "使用Jekyll与Github Pages快速搭建个人博客"
 date:   2014-11-17 13:31:01 +0800
-categories: tutorial
-tag: jekyll
+categories: Tutorials
+tag: Jekyll
 ---
 
 * content

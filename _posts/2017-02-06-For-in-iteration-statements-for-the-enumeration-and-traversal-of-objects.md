@@ -4,7 +4,7 @@ layout: post
 title:  对象的枚举与遍历之for-in迭代语句
 #时间配置
 date:   2017-02-06 22:08:00 +0800
-categories: tutorial
+categories: Tutorials
 tag: JavaScript
 ---
 
