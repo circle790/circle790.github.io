@@ -68,6 +68,44 @@ for(var i = 0;i < person.length;i++){
 }
 ```
 
+所以这里值得注意的是，如果我们和使用不同类型语言的后端工程师配合很有可能获取得到的数据格式有所不同，这就需要相互之间做一些调整了。当然通常情况下我们能取到的类型是下面这样一种情况。
+
+```javascript
+var obj = {
+            store:[{
+                aurl: 'A站',
+                alt: 'desc1',
+                pid: 1,
+                src: 'aaa',
+            },
+            {
+                aurl: 'B站',
+                alt: 'desc2',
+                pid: 2,
+                src: 'bbb',
+            }]
+        };
+
+console.log(obj);
+console.log(obj instanceof Array)
+//false
+```
+
+这里我们使用`for-in`可以方便的将其转化为数组。
+
+```javascript
+var arr = new Array();
+for(var i in obj.store) {
+    arr.push([obj.store[i].aurl, obj.store[i].alt, obj.store[i].pid, obj.store[i].src]);
+}
+
+console.log(arr)
+console.log(arr instanceof Array)
+//true
+```
+
+使用`eval("("+jsonString+")")`;可将json形式的字符串转化为json对象，使用`JSON.stringify(ojson)`可将josn对象转化为字符串。
+
 到这里基本结束，如上文如有不当之处还恭请斧正，便以营造共同进步的机会~~
 
 ---------
