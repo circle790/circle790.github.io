@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>示例demo-actor</title>
+    <link rel="shortcut icon" href="../styles/images/avatar.png">
+    <link rel="icon" href="../styles/images/avatar.png">
+    <meta name="author" content="actor,yanyuan,闫圆">
+    <meta name="keywords" content="前端开发,web开发,个人博客,前端技术交流">
+    <meta name="description" content="actor;闫圆;个人博客;活到老;学到老;生命不止;折腾不休">
+    <link rel="stylesheet" href="../styles/css/index.css">
+    <script src="../styles/js/jquery.min.js"></script>
+    <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <style>
+    body{
+        padding:0;
+        margin:0;
+    }
+    .lightbg{
+        position: relative;
+    }
+    .tx{
+        width: 100%;
+        position: absolute;
+        top: 3%;
+        width: 100%;
+        text-align: center;
+        z-index: 3;
+    }
+    .tx .txh{
+        position: relative;
+        opacity: 0;
+        filter: alpha(opacity=100);
+        animation: inUp 0.5s linear 0.2s forwards;
+        font-size: 24px;
+        margin-bottom:10px;
+        color: #fff;
+        line-height: 1;
+    }
+    .tx .txp{
+        position: relative;
+        opacity: 0;
+        filter: alpha(opacity=100);
+        animation: inUp 0.5s linear 0.4s forwards;
+        padding: 0 5%;
+        font-size: 14px;
+        color: #c1c2c3;
+        line-height: 24px;
+    }
+    @-webkit-keyframes inUp {
+      0% {
+        top: 50px;
+        opacity: 0;
+        filter: alpha(opacity=0);
+      }
+      100% {
+        top: 0;
+        opacity: 1;
+        filter: alpha(opacity=100);
+      }
+    }
+    .lightq{
+        position: relative;
+    }
+    .lightq .bd>img{
+        width: 100%;
+        height:auto;
+    }
+    .lightq .bd ul{
+        width: 100%;
+        height:100%;    
+    }
+    .lightq .bd li{
+        width: 100%;
+        height:100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .lightq .bd li em{
+        width: 100%;
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        /*opacity: 0;
+        filter: alpha(opacity=0);
+        transition: opacity 1.2s ease 0s; */
+    }
+    .lightq .bd li em img{
+        width: 100%;
+        height: 100%;
+    }
+    .lightq .bd li em.show{
+        display: block;
+        /*opacity: 1;
+        filter: alpha(opacity=100);
+        transition: opacity 1.2s ease 0s;*/
+    }
+    .lightq .hd {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 652px;
+        margin-left: -326px;
+        z-index: 3;
+    }
+    .lightq .hd ul li {
+        text-align: center;
+        cursor: pointer;
+    }
+    .lightq .hd ul li em {
+        display: inline-block;
+        *display:inline;
+        *zoom:1;
+        width: 79px;
+        height: 79px;
+        vertical-align: top;
+        margin-bottom: 10px;
+        border-radius: 50%;
+        box-sizing: border-box;
+        border: 1px #d30830 solid;
+        position: relative;
+        transition:all 0.5s ease 0s;
+    }
+    .lightq .hd ul li p {
+        font-size: 14px;
+        color: #d30830;
+    }
+    .lightq .hd ul li em b {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        top: 50%;
+        margin-top: -25px;
+        margin-left: -25px;
+        left: 50%;
+    }
+    .lightq .hd ul li:hover em{
+        background-color: #d30830;
+    }
+    .lightq .hd ul li.font em b {
+        background: url("img/front.png") no-repeat center;
+        background-size: 100% 100%;
+        transition: all 0.5s ease 0s;
+    }
+    .lightq .hd ul li.font:hover em b {
+        background: url("img/front02.png") no-repeat center;
+        background-size: 100% 100%;
+        transition: all 0.5s ease 0s;
+    }
+    .lightq .hd ul li.end em b {
+        background: url("img/end.png") no-repeat center;
+        background-size: 100% 100%;
+        transition: all 0.5s ease 0s;
+    }
+    .lightq .hd ul li.end:hover em b {
+        background: url("img/end02.png") no-repeat center;
+        background-size: 100% 100%;
+        transition: all 0.5s ease 0s;
+    }
+    .lightq .bd ul li em::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 2;
+        -webkit-animation: gradient 3s linear;
+        animation: gradient 3s linear;
+    }
+    @-webkit-keyframes gradient {
+      0% {
+        box-shadow: inset 0 900px 600px rgba(0,0,0,0.8);
+      }
+      100% {
+        box-shadow: inset 0 0px 600px rgba(0,0,0,0.8);
+      }
+    }
+    @keyframes gradient {
+      0% {
+        box-shadow: inset 0 900px 600px rgba(0,0,0,0.8);
+      }
+      100% {
+        box-shadow: inset 0 0px 600px rgba(0,0,0,0.8);
+      }
+    }
+    @media screen and (max-width: 766px){
+        .tx {
+            position: static;
+            padding-top: 3%;
+        }
+        .lightq .hd {
+            width: 90%;
+            padding: 0 5%;
+            left: 0;
+            margin: 0;
+        }
+        .lightq .hd ul li em {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 0;
+        }
+        .lightq .hd ul li em b{
+            width: 40px;
+            height: 40px;
+            margin-left: -20px;
+            margin-top:-20px;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="lightbg" style="background: url(img/lightbg.jpg) center no-repeat;background-size:cover;">
+      <div class="tx">
+        <h2 class="txh">简短的标题文字</h2>
+        <div class="txp">
+          <p>一段比较长的文字说明，内容大致是说明车灯照射距离范围等等一些的，具体是什么就不做描述了，毕竟这是做示例不是做广告，不是重点。</p>
+        </div>
+      </div>
+      <div class="lightq">
+        <div class="lightimg bd">
+          <img src="img/clight.png" alt="">
+          <ul>
+            <li>
+              <em><img src="img/fontl.png" alt=""></em>
+              <!-- <em><img src="img/fonta.png" alt=""></em> -->
+            </li>
+            <li>
+              <em><img src="img/endl.png" alt=""></em>
+              <!-- <em><img src="img/enda.png" alt=""></em> -->
+            </li>
+          </ul>
+        </div>
+        <div class="hd">
+          <ul class="f-cb">
+            <li class="font fl">
+              <em><a href="javascript:;"><b></b></a></em>
+              <p>前灯</p>
+            </li>
+            <li class="end fr">
+              <em><a href="javascript:;"><b></b></a></em>
+              <p>尾灯</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script>
+    $(function(){
+        //light控制
+        $('.lightq .bd ul li').eq(0).find('em').stop(true,true).addClass('show');
+        $('.lightq .hd ul li').on("click",function(){
+            var i = $(this).index();
+            $('.lightq .bd ul li').find('em').stop(true,true).removeClass('show');
+            $('.lightq .bd ul li').eq(i).find('em').stop(true,true).addClass('show');
+        })
+    })
+    </script>
+</body>
+</html>

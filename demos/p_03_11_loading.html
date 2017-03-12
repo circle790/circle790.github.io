@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>示例demo-actor</title>
+    <link rel="shortcut icon" href="../styles/images/avatar.png">
+    <link rel="icon" href="../styles/images/avatar.png">
+    <meta name="author" content="actor,yanyuan,闫圆">
+    <meta name="keywords" content="前端开发,web开发,个人博客,前端技术交流">
+    <meta name="description" content="actor;闫圆;个人博客;活到老;学到老;生命不止;折腾不休">
+    <link rel="stylesheet" href="../styles/css/index.css">
+    <script src="../styles/js/jquery.min.js"></script>
+    <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <style>
+    .bg{
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+    }
+    .bg .lg{
+        width: 228px;
+        height: 72px;
+        background-color: #ccc;
+        overflow: hidden;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -36px;
+        margin-left: -114px;
+    }
+    .bg .lg>img{
+        width: 100%;
+        height: 100%;
+        position: relative;
+        z-index: 2;
+    }
+    .bg .lg .wave{
+        width: 500px;
+        height: 100px;
+        position: absolute;
+        right: 0px;
+        top: 40px;
+        background: url(img/loadingbg.png) right repeat;
+        background-size: 140px 100px;
+        z-index: 1;
+        animation: wave 3s infinite linear;
+    }
+    @-webkit-keyframes wave {
+      0% {
+        top: 56px;
+        right: 0;
+      }
+      100% {
+        top: -30px;
+        right: -166px;
+      }
+    }
+    </style>
+</head>
+<body>
+    <div class="bg">
+        <div class="lg">
+          <img src="img/lgk.png" alt="">
+          <b class="wave"></b>
+        </div>
+    </div>
+</body>
+</html>

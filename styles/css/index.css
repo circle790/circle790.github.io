@@ -7158,3 +7158,27 @@ td.visible-print {
     margin-left: 0px;
   }
 }
+
+/*==========personal code==========*/
+.f-cb {
+  zoom: 1;
+}
+
+.f-cb:after {
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+  overflow: hidden;
+  content: ".";
+}
+
+.fl {
+  float: left;
+  display: inline;
+}
+
+.fr {
+  float: right;
+  display: inline;
+}

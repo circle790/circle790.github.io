@@ -4,7 +4,7 @@ layout: post
 title:  RegExp与字符串常规处理
 #时间配置
 date:   2017-02-24 22:58:00 +0800
-categories: Tutorial
+categories: Tutorials
 tag: JavaScript
 ---
 
@@ -89,6 +89,7 @@ while((result = patt.exec(str)) != null)  {
 如果RegExp没有标志g，那么.match()方法就只能在字符串中执行一次匹配。
 如果没有找到任何匹配的文本，将返回null，否则它将返回一个数组，其中存放了与它找到的匹配文本有关的信息。
 返回数组的第一个元素存放的是匹配文本，其余的元素存放的是与正则表达式的子表达式匹配的文本，除了常规的数组元素之外，返回的数组还含有2个对象属性。
+
 -index声明匹配文本的起始字符在字符串的位置;
 -input声明对stringObject的引用。
 
@@ -138,6 +139,8 @@ function 参数含义
 // 3d4
 // "a12c34e5"
 ```
+
+介绍一个很实用的RegExp图形化在线网站[regexper](https://regexper.com/),妈妈再也不担心我学习正则匹配了，so easy~。
 
 ---------
 好啦，今天就这里了，回见~
