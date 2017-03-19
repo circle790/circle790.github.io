@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>示例demo-actor</title>
+    <link rel="shortcut icon" href="../styles/images/avatar.png">
+    <link rel="icon" href="../styles/images/avatar.png">
+    <meta name="author" content="actor,yanyuan,闫圆">
+    <meta name="keywords" content="前端开发,web开发,个人博客,前端技术交流">
+    <meta name="description" content="actor;闫圆;个人博客;活到老;学到老;生命不止;折腾不休">
+    <link rel="stylesheet" href="../styles/css/reset.css">
+    <script src="../styles/js/jquery.min.js"></script>
+    <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <style>
+    /*---滚动条默认显示样式--*/  
+    ::-webkit-scrollbar-thumb{  
+       background-color:rgba(0,0,0,0.4);  
+       height:50px;  
+       outline-offset:-2px;  
+       outline:2px solid #fff;  
+       -webkit-border-radius:4px;  
+       border: 2px solid #fff;  
+    }  
+     
+    /*---鼠标点击滚动条显示样式--*/  
+    ::-webkit-scrollbar-thumb:hover{  
+       background-color:rgba(0,0,0,0.7);  
+       height:50px;
+       -webkit-border-radius:4px;
+    }  
+     
+    /*---滚动条大小--*/  
+    ::-webkit-scrollbar{  
+       width:8px;  
+       height:8px;  
+    }  
+     
+    /*---滚动框背景样式--*/  
+    ::-webkit-scrollbar-track-piece{  
+       background-color:#fff;  
+       -webkit-border-radius:0;  
+    }
+    body{
+        padding:0;
+        margin:0;
+    }
+    .page{
+        width: 80%;
+        height:1200px;
+        margin:0 auto;
+    }
+    .bk{
+        width: 100%;
+        height: 300px;
+    }
+    .bk01{
+        background-color:yellow;
+        text-align: center;
+    }
+    .bk01 .btn{
+        border:none;
+        outline:none;
+        background-color: red;
+        color: #fff;
+        width: 120px;
+        height: 38px;
+        font-size: 14px;
+        margin:0 auto;
+        margin-top:30px;
+    }
+    .bk02{
+        background-color: red;
+    }
+    .bk03{
+        background-color: green;
+    }
+    .bk04{
+        background-color: purple;
+    }
+    .masklayer{
+        display: none;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top:0;
+        left:0;
+        background-color:rgba(0,0,0,0.15);
+        z-index: 2;
+    }
+    .winbox{
+        display: none;
+        position: fixed;
+        top:50%;
+        left:50%;
+        width: 36%;
+        height: 240px;
+        padding:30px 5%;
+        margin-top:-150px;
+        margin-left:-23%;
+        background-color: #fff;
+        border-radius: 4px;
+        box-shadow: 0 0 8px #ccc;
+        z-index: 3;
+    }
+
+    
+    .winbox h2{
+        font-size: 16px;
+        line-height: 24px;
+        padding-bottom:10px;
+        border-bottom:1px #999 solid;
+        margin-bottom:5px;
+    }
+    .winbox .content{
+        height:200px;
+        overflow-x: hidden;
+    }
+    .winbox .content p{
+        font-size: 12px;
+        line-height:24px;
+        margin-bottom:10px;
+    }
+    .noscroll,
+    .noscroll body {
+        overflow: hidden;
+    }
+    .noscroll body {
+        position: relative;
+    }
+    @media screen and (max-width: 766px){
+        .winbox{
+            width: 70%;
+            margin-left:-40%;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="bk bk01">
+            <input type="button" class="btn" value="查看Demo">
+        </div>
+        <div class="bk bk02"></div>
+        <div class="bk bk03"></div>
+        <div class="bk bk04"></div>
+    </div>
+    <div class="masklayer"></div>
+    <div class="winbox">
+        <h2>窗体滚动</h2>
+        <div class="content">
+            <article>
+                <p>最近做移动端项目，遇到个类似的需求，就是，在众多web浏览器中，当我们出现一个浮层，浮层里面也有滚动条的时候，且有部分背景半透明的时候，就会发现，当我们滚动浮层里面的小滚动条的时候，背后整个页面都跟着一起滚走了。</p>
+                <p>最近做移动端项目，遇到个类似的需求，就是，在众多web浏览器中，当我们出现一个浮层，浮层里面也有滚动条的时候，且有部分背景半透明的时候，就会发现，当我们滚动浮层里面的小滚动条的时候，背后整个页面都跟着一起滚走了。</p>
+                <p>最近做移动端项目，遇到个类似的需求，就是，在众多web浏览器中，当我们出现一个浮层，浮层里面也有滚动条的时候，且有部分背景半透明的时候，就会发现，当我们滚动浮层里面的小滚动条的时候，背后整个页面都跟着一起滚走了。</p>
+                <p>最近做移动端项目，遇到个类似的需求，就是，在众多web浏览器中，当我们出现一个浮层，浮层里面也有滚动条的时候，且有部分背景半透明的时候，就会发现，当我们滚动浮层里面的小滚动条的时候，背后整个页面都跟着一起滚走了。</p>
+                <p>最近做移动端项目，遇到个类似的需求，就是，在众多web浏览器中，当我们出现一个浮层，浮层里面也有滚动条的时候，且有部分背景半透明的时候，就会发现，当我们滚动浮层里面的小滚动条的时候，背后整个页面都跟着一起滚走了。</p>
+            </article>
+        </div>
+    </div>
+    <script>
+        $('.btn').on("click",function(){
+            $('.masklayer').stop(true,true).fadeIn();
+            $('.winbox').stop(true,true).fadeIn();
+            $('html').addClass('noscroll');
+            $.smartScroll($('.winbox'), '.content');
+        })
+        $('.masklayer').on("click",function(){
+            $('.winbox').stop(true,true).fadeOut();
+            $('.masklayer').stop(true,true).fadeOut();
+            $('html').removeClass('noscroll');
+        })
+        $.smartScroll = function(container, selectorScrollable) {
+            // 如果没有滚动容器选择器，或者已经绑定了滚动时间，忽略
+            if (!selectorScrollable || container.data('isBindScroll')) {
+                return;
+            }
+
+            // 是否是搓浏览器
+            // 自己在这里添加判断和筛选
+            var isSBBrowser;
+
+            var data = {
+                posY: 0,
+                maxscroll: 0
+            };
+
+            // 事件处理
+            container.on({
+                touchstart: function (event) {
+                    console.log(event)
+                    var events = event.originalEvent.targetTouches[0] || event;
+                    
+                    // 先求得是不是滚动元素或者滚动元素的子元素
+                    var elTarget = $(event.target);
+                    
+                    if (!elTarget.length) {
+                        return;    
+                    }
+                    
+                    var elScroll;
+                    
+                    // 获取标记的滚动元素，自身或子元素皆可
+                    if (elTarget.is(selectorScrollable)) {
+                        elScroll = elTarget;
+                    } else if ((elScroll = elTarget.parents(selectorScrollable)).length == 0) {
+                        elScroll = null;
+                    }
+                    
+                    if (!elScroll) {
+                        return;
+                    }
+                    
+                    // 当前滚动元素标记
+                    data.elScroll = elScroll;
+                    
+                    // 垂直位置标记
+                    data.posY = events.pageY;
+                    data.scrollY = elScroll.scrollTop();
+                    // 是否可以滚动
+                    data.maxscroll = elScroll[0].scrollHeight - elScroll[0].clientHeight;
+                },
+                touchmove: function (event) {
+                    // 如果不足于滚动，则禁止触发整个窗体元素的滚动
+                    if (data.maxscroll <= 0 || isSBBrowser) {
+                        // 禁止滚动
+                        event.preventDefault();
+                    }
+                    // 滚动元素
+                    var elScroll = data.elScroll;
+                    // 当前的滚动高度
+                    var scrollTop = elScroll.scrollTop();
+            
+                    // 现在移动的垂直位置，用来判断是往上移动还是往下
+                    var events = event.originalEvent.targetTouches[0] || event;
+                    // 移动距离
+                    var distanceY = events.pageY - data.posY;
+            
+                    if (isSBBrowser) {
+                        elScroll.scrollTop(data.scrollY - distanceY);
+                        elScroll.trigger('scroll');
+                        return;
+                    }
+            
+                    // 上下边缘检测
+                    if (distanceY > 0 && scrollTop == 0) {
+                        // 往上滑，并且到头
+                        // 禁止滚动的默认行为
+                        event.preventDefault();
+                        return;
+                    }
+            
+                    // 下边缘检测
+                    if (distanceY < 0 && (scrollTop + 1 >= data.maxscroll)) {
+                        // 往下滑，并且到头
+                        // 禁止滚动的默认行为
+                        event.preventDefault();
+                        return;
+                    }
+                },
+                touchend: function () {
+                    data.maxscroll = 0;
+                }    
+            });
+
+            // 防止多次重复绑定
+            container.data('isBindScroll', true);
+        };
+    </script>
+</body>
+</html>
