@@ -43,21 +43,21 @@ JavaScript是一种弱类型的编程语言，也能以封装的形式类似实�
 ------------------------
 下面就简单介绍一下JavaScript如何实现面向对象编程，基于个人理解，希望大家看到有错误或者说不恰当的地方能够在评论区留言告诉我哈~
 
-JavaScript主要以prototype对象实现面向对象。每个函数都是一个对象，它们对应的类是
+prototype是JavaScript实现面向对象的重要机制。每个函数都是一个对象，它们对应的类是
 function，每个函数对象有一个子对象prototype。prototype 表示该函数的原型，
 prototype表示了这个类的属性的集合。当通过new来生成一个类的对象时，prototype对象的属性就会成为实例化对象的属性。
 举个栗子~
 
 ```javascript
 //定义一个空类
-function class(){
+function Type(){
 
 }
 //对类的prototype对象进行修改，增加方法method
-class.prototype.method = function(){
+Type.prototype.method = function(){
     alert("prototype测试");
 }
-var obj=new class(); //创建类class的实例
+var obj=new Type(); //创建类Type的实例
 obj.method(); //调用obj的method方法
 ```
 
@@ -65,14 +65,14 @@ obj.method(); //调用obj的method方法
 
 ```javascript
 //定义有一个属性的类
-function class(){
+function Type(){
     this.name="actor";
 }
 //使用函数的prototype属性给类定义新属性
-class.prototype.showName = function(){
+Type.prototype.showName = function(){
     alert(this.name);
 }
-var obj=new class(); //创建class类的一个实例
+var obj=new Type(); //创建Type类的一个实例
 //调用prototype原型对象定义的showName方法
 obj.showName();
 ```
@@ -80,32 +80,33 @@ obj.showName();
 使用prototype实现继承
 
 ```javascript
-function class(){
+function SupType(){
     //构造方法
 }
-function subClass(){
+function SubType(){
     //构造方法
 }
-subClass.prototype=class.prototype;
-subClass.prototype.Propertys="name";
-subClass.prototype.subMethods=function(){
+SubType.prototype=SupType.prototype;
+SubType.prototype.propertys="name";
+SubType.prototype.subMethods=function(){
     //方法实现代码
     alert("in Methods");
 }
-var obj=new subClass();
+var obj=new SubType();
 obj.subMethods();
 ```
 
-代码中，subClass具有和class一样的prototype,不考虑构造方法，则两个类等价。随后，通过prototype给subClass赋予了额外的属性和方法,subClass在class的基础上增加了新的属性和方法，从而实现了类的继承。
+代码中，SubType具有和SupType一样的prototype,不考虑构造方法，则两个类等价。随后，通过prototype给SubType赋予了额外的属性和方法,SubType在SupType的基础上增加了新的属性和方法，从而实现了类的原型继承。
 
 JavaScript实现面向对象的基本的原理就是，当通过prototype编写类后，使用new关键字实例一个新的object，浏览器就自动把prototype中的内容替你附加在object上。这样也就通过prototype，实现了类似OO的Javascript。
 其实在Javascript中，object就是个associative array，一个function就是个类。
 
-好了，就到这里了，时间不早了，大家晚安~
+---------
+运用这种原型的继承方式，将父类的一个实例赋值给子类的原型，这样即可以继承父类原型里的属性方法又能拥有父类函数内的属性和方法，虽然有显著的优点当然也存在一些缺陷，即每次创建子类进行实例的时候都会重新为函数类的属性和方法划分新的储存空间，如果数据量巨大这对于内存使用来说是个灾难，而且参数的传递方式过于隐蔽，不能算是*完美的继承*。借助构造函数的继承（运用`call`和`apply`的特性实现继承）虽然不会在每次创建子类时为复用的方法划分新的存储空间且参数便于阅读，但是却无法继承原型里的属性和方法。只有两者相结合的组合式继承才是相对完美的继承。
 
 ---------
 感谢阅读拙文~~~
-PS：今天真的适合阅读这篇文章，希望没有找到对象的同学早日找到合适的对象呐~嘻嘻~
+PS：最后希望没有找到对象的同学早日找到合适的对象~嘻嘻~
 
 ---------
 
