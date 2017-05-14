@@ -104,7 +104,7 @@ console.log(arr instanceof Array)
 //true
 ```
 
-使用`eval("("+jsonString+")")`;可将json形式的字符串转化为json对象，使用`JSON.stringify(ojson)`可将josn对象转化为字符串。
+使用`eval("("+jsonString+")")`可将json形式的字符串转化为json对象，使用`JSON.stringify(ojson)`可将josn对象转化为字符串。
 
 到这里基本结束，如上文如有不当之处还恭请斧正，便以营造共同进步的机会~~
 
