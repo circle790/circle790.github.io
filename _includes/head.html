@@ -12,19 +12,30 @@
 	<link rel="stylesheet" href="{{ '/styles/css/syntax.css' | prepend: site.baseurl }}">
 	<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl }}">
 	<link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ '/feed.xml' | prepend: site.baseurl }}">
+    <meta property="wb:webmaster" content="ed302528401f911b" />
 	<meta name="author" content="actor,yanyuan,闫圆">
 	<meta name="keywords" content="前端开发,web开发,个人博客,前端技术交流">
 	<meta name="description" content="{{site.meta_description}}">
-	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai-sublime.min.css">
-	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+	<!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai-sublime.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script> -->
 	<script src="{{ '/styles/js/jquery.min.js' | prepend: site.baseurl }}"></script>
 	<!--[if lt IE 9]>
     	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   	<![endif]-->
-  	<script>hljs.initHighlightingOnLoad();</script>
+  	<!-- <script>hljs.initHighlightingOnLoad();</script> -->
   	<style type="text/css">
 	  	.docs-content{
 	  		margin-bottom: 10px;
 	  	}
+        .weiboComments .wc_box.wcF14{
+            border:none !important;
+        }
+        .yy-post-content{
+            padding-top:30px;
+        }
+        .WB_follow_ex .follow_text{
+            width:auto !important;
+        }
   	</style>
+    <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=appkey" type="text/javascript" charset="utf-8"></script>
 </head>

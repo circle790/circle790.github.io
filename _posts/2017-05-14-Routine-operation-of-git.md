@@ -121,6 +121,20 @@ $ git merge develop
 
 使用`git log --graph`可以查看分支合并图。
 
+-撤销操作
+
+重置暂存区的指定文件，与上一次commit保持一致，但工作区不变
+
+```bash
+$ git reset <-file->
+```
+
+重置暂存区与工作区，与上一次commit保持一致
+
+```bash
+$ git reset --hard
+```
+
 -删除分支
 
 ```bash
@@ -156,7 +170,10 @@ $ git pull git@github.com:circle790/myproject.git
 ---------
 
 详细的git教程查看
+
 [史上最浅显易懂的Git教程](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/)
+
+[常用 Git 命令清单](http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html)
 
 ---------
 
