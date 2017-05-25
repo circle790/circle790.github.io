@@ -12,5 +12,4 @@ var duoshuoQuery = {short_name:"{{ site.FB.comments.duoshuo.short_name }}"};
 	})();
 </script> -->
 
-<wb:comments url="http://open.weibo.com/widget/comments.php" width="auto" ></wb:comments>
-
+<wb:comments url="auto" fontsize="12" width="auto" appkey="3580974560" ralateuid="2979273701" ></wb:comments>
