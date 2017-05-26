@@ -12,4 +12,17 @@ var duoshuoQuery = {short_name:"{{ site.FB.comments.duoshuo.short_name }}"};
 	})();
 </script> -->
 
-<wb:comments url="auto" fontsize="12" width="auto" appkey="3580974560" ralateuid="2979273701" ></wb:comments>
+<script type="text/javascript">
+(function(){
+var url = "http://widget.weibo.com/distribution/comments.php?width=0&url=auto&fontsize=12&ralateuid=3925527846&appkey=3580974560&dpc=1";
+url = url.replace("url=auto", "url=" + encodeURIComponent(document.URL)); 
+document.write('<iframe id="WBCommentFrame" src="' + url + '" scrolling="no" frameborder="0" style="width:100%"></iframe>');
+})();
+</script>
+<script src="https://tjs.sjs.sinajs.cn/open/widget/js/widget/comment.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+window.WBComment.init({
+    "id": "WBCommentFrame"
+});
+</script>
+<!-- <wb:comments url="auto" fontsize="12" width="auto" appkey="3580974560" ralateuid="2979273701" ></wb:comments> -->
