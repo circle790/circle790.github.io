@@ -12,7 +12,7 @@ var duoshuoQuery = {short_name:"{{ site.FB.comments.duoshuo.short_name }}"};
 	})();
 </script> -->
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 (function(){
 var url = "https://widget.weibo.com/distribution/comments.php?width=0&url=auto&fontsize=12&ralateuid=3925527846&appkey=3580974560&dpc=1";
 url = url.replace("url=auto", "url=" + encodeURIComponent(document.URL)); 
@@ -24,5 +24,5 @@ document.write('<iframe id="WBCommentFrame" src="' + url + '" scrolling="no" fra
 window.WBComment.init({
     "id": "WBCommentFrame"
 });
-</script>
+</script> -->
 <!-- <wb:comments url="auto" fontsize="12" width="auto" appkey="3580974560" ralateuid="2979273701" ></wb:comments> -->
