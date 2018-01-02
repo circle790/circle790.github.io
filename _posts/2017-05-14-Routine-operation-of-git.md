@@ -1,7 +1,7 @@
 ---
 layout: post
 #标题配置
-title:  "git操作常规流程"
+title:  "Git操作常规流程"
 #时间配置
 date:   2017-05-12 16:37:00 +0800
 categories: Tutorials
@@ -43,11 +43,26 @@ $ git add <-file->
 ```
 使用`git add .`添加所有文件
 
+-比较差异
+
+比较的是暂存区和工作区的差异
+```bash
+$ git diff
+```
+比较的是暂存区和历史区的差异
+```bash
+$ git diff --cached
+```
+比较的是历史区和工作区的差异（修改）
+```bash
+$ git diff master
+```
+
 -删除文件
 ```bash
 $ git rm <-file->
 ```
-使用`git rm <-dir-> -r -f`删除文件夹，`-r`递归删除指定文件夹下的所有文件，`-f`表示强制删除。
+使用`git rm <-dir-> -r -f`删除文件夹，`-r`递归删除指定文件夹下的所有文件，`-f`表示强制删除,`--cached`使用--cached 表示只删除缓存区中的内容。
 
 -查看工作区文件状态
 ```bash
@@ -55,11 +70,33 @@ $ git status
 ```
 使用`git status`查看文件的追踪情况。
 
+比较文件差异（请在git add之前使用）：
+```bash
+$ git diff <-file->
+```
+查看仓库历史记录(详细)：
+```bash
+$ git log
+```
+查看仓库历史记录(单行)：
+```bash
+$ git log --pretty=online 或 git log --online
+```
+查看所有版本的commit ID：
+```bash
+$ git reflog
+```
+
 -将改变提交到版本库
 ```bash
 $ git commit -m "commit msg"
 ```
-引号内为提交信息，应尽量做到具体修改内容，方便其他人了解。
+引号内为提交信息，应尽量做到具体修改内容，方便其他人了解。如果需要修改过提交的注释信息：
+```bash
+$ git commit --amend
+```
+对上一次的提交信息做修改
+
 
 创建并关联远程仓库
 ------------------------
@@ -123,17 +160,23 @@ $ git merge develop
 
 -撤销操作
 
-重置暂存区的指定文件，与上一次commit保持一致，但工作区不变
-
+撤销工作区的修改：
 ```bash
-$ git reset <-file->
+$ git checkout -- <-file->
 ```
-
-重置暂存区与工作区，与上一次commit保持一致
-
+撤销暂存区的修改：
 ```bash
-$ git reset --hard
+$ git reset HEAD <-file->
 ```
+回退到历史版本：
+```bash
+$ git reset --hard <-versionId->
+```
+回退到上个版本：
+```bash
+$ git reset --hard HEAD^
+```
+上上版本是HEAD^^，也可用HEAD~2表示，以此类推
 
 -删除分支
 
@@ -159,6 +202,83 @@ $ git pull
 
 ```bash
 $ git pull git@github.com:circle790/myproject.git
+```
+
+补充
+------------------------
+-配置
+
+配置用户名：
+```bash
+$ git config --global user.name "your name"
+```
+配置email：
+```bash
+$ git config --global user.email "your email address"
+```
+本地与远程建立关联是需要让远程知道用户名确认权限。
+
+获取用户名及email
+```bash
+$ git config --global user.name
+$ git config --global user.email
+```
+-远程仓库操作
+
+查看远程服务器地址和仓库名称
+```bash
+$ git remote -v
+```
+查看远程服务器仓库状态
+```bash
+$ git remote show origin
+```
+添加远程仓库地址
+```bash
+$ git remote add origin git@github:robbin/robbin_site.git
+```
+设置远程仓库地址(用于修改远程仓库地址)
+```bash
+$ git remote set-url origin git@ github.com:robbin/robbin_site.git
+```
+删除远程仓库
+```bash
+$ git remote rm <-repository->
+```
+
+-SSH Key
+
+生成SSH Key：
+```bash
+$ ssh-keygen –t rsa –C "你的邮箱@xx.com"
+```
+生成Key时弹出选项回车选择默认即可,Key保存位置：`/root/.ssh`登陆GitHub，创建new SSH key，其内容为`/root/.ssh/id_rsa.pub`文本
+
+-标签
+
+为当前版本打标签：
+```bash
+$ git tag <-tag name->
+```
+为历史版本打标签：
+```bash
+$ git tag <-tag name->  <-versionId->
+```
+指定标签说明：
+```bash
+$ git tag –a <-tag name-> –m "tag msg" [可选：<-versionId->]
+```
+查看所有标签：
+```bash
+$ git tag
+```
+查看某一标签：
+```bash
+$ git show <-tag name->
+```
+删除某一标签：
+```bash
+$ git tag -d <-tag name->
 ```
 
 后话

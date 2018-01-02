@@ -30,20 +30,37 @@ cd 进入文件夹目录
 
 cd .. 返回上级目录
 
-vim 创建文件
+cd ~ 返回根目录
 
-:wq 创建文件后退出编辑(保存修改并退出)
+vim使用
 
-:q 创建文件编辑过程中取消创建（不保存修改退出）
+vim三种模式：命令模式、插入模式、编辑模式。使用ESC或i或：来切换模式。
+
+命令模式下：
+
+:q                      创建文件编辑过程中取消创建（不保存修改退出
+
+:q!                     强制退出
+
+:wq                     创建文件后退出编辑(保存修改并退出)
+
+:set number             显示行号
+
+:set nonumber           隐藏行号
+
+/apache                 在文档中查找apache 按n跳到下一个，shift+n上一个
+
+yyp                     复制光标所在行，并粘贴
+
+h(左移一个字符←)、j(下一行↓)、k(上一行↑)、l(右移一个字符→)
 
 ls -al 查看当前文件夹下文件目录
 
 ls -ah 查看当前文件夹下文件目录（包括隐藏的文件）
 
-vim空格文件 查看文件内容
+vim <-file-> 查看文件内容
 
 pwd: 显示当前工作目录
-
 
 rm -rf空格文件名 彻底删除文件
 
@@ -53,7 +70,6 @@ mv表示移动文件（这个跟剪贴一样），而且可以重命名文件。
 
 例如mva.txta.c意思是重命名a.txt为a.c
 
-
 当前应用程序根目录~\
 
 ~\根路径
@@ -61,7 +77,6 @@ mv表示移动文件（这个跟剪贴一样），而且可以重命名文件。
 .\当前路径
 
 ..\上一层路径
-
 
 文件通配符为星号 *
 
@@ -149,215 +164,47 @@ man 命令名
 比如要看看 ls 命令的详细用法，执行 man ls
 
 
-
-**Git常规操作**
-
-git init 初始化本地仓库
-
-git push -u origin master 将本地主分支推到远程(如无远程主分支则创建，用于初始化远程仓库)
-
-git status 查看本地版本状态
-
-git add . 将变动或修改至工作区
-
-git commit -m "信息" 将工作区版本提交至暂存区并附带说明信息
-
-git push 将暂存区信息提交至远程仓库
-
-git fetch origin  抓取远程仓库更新
-
-git merge origin/master 将远程主分支合并到本地当前分支
-
-git pull  抓取远程仓库所有分支更新并合并到本地（上面两步的和）
-
-git log -p -2 查看最近两次详细修改内容的diff
-
-**查看、添加、提交、删除、找回，重置修改文件**
-
-git help <-command-> # 显示command的help
-
-git show # 显示某次提交的内容 git show $id
-
-git co -- <-file-> # 抛弃工作区修改
-
-git co . # 抛弃工作区修改
-
-git add <-file-> # 将工作文件修改提交到本地暂存区
-
-git add . # 将所有修改过的工作文件提交暂存区
-
-git rm <-file-> # 从版本库中删除文件
-
-git rm <-file-> --cached # 从版本库中删除文件，但不删除文件
-
-git reset <-file-> # 从暂存区恢复到工作文件
-
-git reset -- . # 从暂存区恢复到工作文件
-
-git reset --hard # 恢复最近一次提交过的状态，即放弃上次提交后的所有本次修改
-
-git ci <-file-> git ci . git ci -a #将git add, git rm和git ci等操作都合并在一起做　
-　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
-git ci -am "some comments"
-
-git ci --amend # 修改最后一次提交记录
-
-git revert <-$id-> # 恢复某次提交的状态，恢复动作本身也创建次提交对象
-
-git revert HEAD # 恢复最后一次提交的状态
-
-**查看文件diff**
-
-git diff <-file-> # 比较当前文件和暂存区文件差异
-
-git diff <-id1-><-id1-><-id2-> # 比较两次提交之间的差异
-
-git diff <-branch1->..<-branch2-> # 在两个分支之间比较
-
-git diff --staged # 比较暂存区和版本库差异
-
-git diff --cached # 比较暂存区和版本库差异
-
-git diff --stat # 仅仅比较统计信息
-
-git diff HEAD 查看工作区和当前版本库之间的区别
-
-**查看提交记录**
-
-git log git log <-file-> # 查看该文件每次提交记录
-
-git log -p <-file-> # 查看每次详细修改内容的diff
-
-git log -p -2 # 查看最近两次详细修改内容的diff
-
-git log --stat #查看提交统计信息
-
-tig #Mac上可以使用tig代替diff和log，brew install tig
-
-**Git 本地分支管理**
-
-**查看、切换、创建和删除分支**
-
-git br -r # 查看远程分支
-
-git br <-new_branch-> # 创建新的分支
-
-git br -v # 查看各个分支最后提交信息
-
-git br --merged # 查看已经被合并到当前分支的分支
-
-git br --no-merged # 查看尚未被合并到当前分支的分支
-
-git co <-branch-> # 切换到某个分支
-
-git co -b <-new_branch-> # 创建新的分支，并且切换过去
-
-git co -b <-new_branch-><-branch-> # 基于branch创建新的new_branch
-
-git co $id # 把某次历史提交记录checkout出来，但无分支信息，切换到其他分支会自动删除
-
-git co $id -b <-new_branch-> # 把某次历史提交记录checkout出来，创建成一个分支
-
-git br -d <-branch-> # 删除某个分支
-
-git br -D <-branch-> # 强制删除某个分支 (未被合并的分支被删除的时候需要强制)
-
-**分支合并和rebase**
-
-git merge <-branch-> # 将branch分支合并到当前分支
-
-git merge origin/master --no-ff # 不要Fast-Foward合并，这样可以生成merge提交
-
-git rebase master <-branch-> # 将master rebase到branch，相当于： git co <-branch-> && git rebase master && git co master && git merge <-branch->
-
-**Git补丁管理(方便在多台机器上开发同步时用)**
-
-git diff -> ../sync.patch # 生成补丁
-
-git apply ../sync.patch # 打补丁
-
-git apply --check ../sync.patch #测试补丁能否成功
-
-**Git暂存管理**
-
-git stash # 暂存
-
-git stash list # 列所有stash
-
-git stash apply # 恢复暂存的内容
-
-git stash drop # 删除暂存区
-
-**Git远程分支管理**
-
-git pull # 抓取远程仓库所有分支更新并合并到本地
-
-git pull --no-ff # 抓取远程仓库所有分支更新并合并到本地，不要快进合并
-
-git fetch origin # 抓取远程仓库更新
-
-git merge origin/master # 将远程主分支合并到本地当前分支
-
-git co --track origin/branch # 跟踪某个远程分支创建相应的本地分支
-
-git co -b <-local_branch-> origin/<-remote_branch-> # 基于远程分支创建本地分支，功能同上
-
-git push # push所有分支
-
-git push origin master # 将本地主分支推到远程主分支
-
-git push -u origin master # 将本地主分支推到远程(如无远程主分支则创建，用于初始化远程仓库)
-
-git push origin <-local_branch-> # 创建远程分支， origin是远程仓库名
-
-git push origin <-local_branch->:<-remote_branch-> # 创建远程分支
-
-git push origin :<-remote_branch-> #先删除本地分支(git br -d <-branch->)，然后再push删除远程分支
-
-**Git远程仓库管理**
-
-**GitHub**
-
-git remote -v # 查看远程服务器地址和仓库名称
-
-git remote show origin # 查看远程服务器仓库状态
-
-git remote add origin git@ github:robbin/robbin_site.git # 添加远程仓库地址
-
-git remote set-url origin git@ github.com:robbin/robbin_site.git # 设置远程仓库地址(用于修改远程仓库地址) 
-
-git remote rm <-repository-> # 删除远程仓库
-
-**创建远程仓库**
-
-git clone --bare robbin_site robbin_site.git # 用带版本的项目创建纯版本仓库
-
-scp -r my_project.git git@ git.csdn.net:~ # 将纯仓库上传到服务器上
-
-mkdir robbin_site.git && cd robbin_site.git && git --bare init # 在服务器创建纯仓库
-
-git remote add origin git@ github.com:robbin/robbin_site.git # 设置远程仓库地址
-
-git push -u origin master # 客户端首次提交
-
-git push -u origin develop # 首次将本地develop分支提交到远程develop分支，并且track
-
-git remote set-head origin master # 设置远程仓库的HEAD指向master分支
-
-也可以命令设置跟踪远程库和本地库
-
-git branch 查看分支
-
-git branch --set-upstream master origin/master
-
-git branch --set-upstream develop origin/develop
-
-
+-npm使用淘宝镜像
+
+临时安装使用：
+```bash
+$ npm install --registry=https://registry.npm.taobao.org
+```
+持久安装使用：
+```bash
+$ npm config set registry https://registry.npm.taobao.org
+```
+配置后可通过下面方式来验证是否成功:
+```bash
+$ npm config get registry 或者 npm info express
+```
+通过cnpm安装：
+```bash
+$ npm install -g cnpm --registry=https://registry.npm.taobao.org 
+$ cnpm install
+```
+查看全局安装npm包：
+```bash
+$ npm list -g
+```
+查看某个模块的版本：
+```bash
+$ npm list grunt（查看grunt版本号）
+```
+卸载模块：
+```bash
+$ npm uninstall express
+```
+更新模块：
+```bash
+$ npm update express
+```
+创建npm包(生成package.json文件)：
+```bash
+$ npm init
+```
 
 ---------
-
-详细的git教程查看
-[史上最浅显易懂的Git教程](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/)
-
+	更多指令完善中(如：nginx相关配置)
 ---------
 

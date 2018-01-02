@@ -19,7 +19,10 @@ tag: Javascript
 A cookie is nothing but a no more than 4KB in size text file stored in your browser.
 Each time the browser sends a request to the server, the message in it will be attached automatically so that the server gets and maintains the status information of the page you visited early.
 
-Cookie是网站辨别用户身份、进行 Session 跟踪的重要途径，通过 Cookie 技术可以方便的记录访问者的一些基本信息。最典型的应用是判定注册用户是否已经登录网站，提示用户是否在下一次进入此网站时保留用户信息以便简化登录手续；另一个重要应用场合是“购物车”之类处理，用户在一段时间内在同一家网站的不同页面中选择不同的商品，这些信息都会写入Cookies，最后付款时提取信息。
+Cookie是网站辨别用户身份、进行 Session 跟踪的重要途径，通过 Cookie 技术可以方便的记录访问者的一些基本信息。
+
+最典型的应用是判定注册用户是否已经登录网站，提示用户是否在下一次进入此网站时保留用户信息以便简化登录手续；另一个重要应用场合是“购物车”之类处理，用户在一段时间内在同一家网站的不同页面中选择不同的商品，这些信息都会写入Cookies，最后付款时提取信息。
+
 Cookie本身并不有害，只是存在信息泄漏的风险。
 
 ![查看cookie]({{ '/styles/images/cookie.png' | prepend: site.baseurl  }})
@@ -90,7 +93,7 @@ Cookie本身并不有害，只是存在信息泄漏的风险。
 编码
 ------------------------
 Cookie是一个字符串，在传输的过程中逗号、分号、空格被当作特殊符号，因此当Cookie的key 或者value 中包含特殊字符时需要进行编码。
-一般会用`escape`进行编码，读取时用`unescape`进行解码。
+ECMAScript v3 之前使用`escape`进行编码，读取时用`unescape`进行解码，现在使用`encodeURI()`和`decodeURI()`进行编码和解码。
 
 [浏览器Cookie操作JS代码获取](https://github.com/js-cookie/js-cookie)。
 
