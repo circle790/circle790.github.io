@@ -1,7 +1,7 @@
 ---
 layout: post
 #标题配置
-title:  "Git操作常规流程"
+title:  "Git一般操作流程"
 #时间配置
 date:   2017-05-12 16:37:00 +0800
 categories: Tutorials
