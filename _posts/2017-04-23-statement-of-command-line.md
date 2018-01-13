@@ -13,7 +13,7 @@ tag: Git
 
 介绍
 ------------------------
-Git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目，目前是世界上最先进的分布式版本控制系统（没有之一），区别于集中式的版本控制系统。
+一名合格的程序员必定是要掌握一些不太好记的骚操作的，比如说今天要介绍的指令，哈哈~。
 
 指令
 ------------------------
@@ -62,9 +62,9 @@ vim <-file-> 查看文件内容
 
 pwd: 显示当前工作目录
 
-rm -rf空格文件名 彻底删除文件
+rm -rf 空格文件名 彻底删除文件
 
-rm-rf表示删除文件，而且可以删除非空目录。-rf参数表示递归强制删除。
+rm-rf 表示删除文件，而且可以删除非空目录。-rf参数表示递归强制删除。
 
 mv表示移动文件（这个跟剪贴一样），而且可以重命名文件。
 
@@ -137,8 +137,6 @@ sudo命令用于针对单个命令授予临时权限。
 
 使用方法是在原有命令之前加上sudo+空格。
 
-
-
 命令别名通常是其他命令的缩写，用来减少键盘输入。
 
 ```html
@@ -164,7 +162,7 @@ man 命令名
 比如要看看 ls 命令的详细用法，执行 man ls
 
 
--npm使用淘宝镜像
+**npm使用淘宝镜像**
 
 临时安装使用：
 ```bash
@@ -203,6 +201,110 @@ $ npm update express
 ```bash
 $ npm init
 ```
+
+**查看端口进程及通过PID终止进程**
+
+1、windows系统环境：
+
+使用win+R打卡运行，输入cmd回车打开命令行工具，执行
+
+```bash
+C:\>netstat -aon|findstr 端口号 //netstat -ano 查看所有端口的使用情况，netstat -aon|findstr 8080 查看8080端口的使用情况
+C:\>tasklist|findstr PID号 //根据PID号查看程序名
+C:\>taskkill /f /t /pid PID号 //根据PID号强制终止进程
+C:\>taskkill /f /t /im 程序名 //程序名强制终止进程
+```
+2、Linux系统环境
+
+打开终端，输入sudo -i，切换到root权限
+
+```bash
+$ lsof -i tcp:端口号 //lsof(list open files)列出当前系统打开文件,lsof -i tcp:22列出22端口tcp相关项使用情况
+$ netstat -tunlp|grep 端口号 //查看22端口的使用情况
+$ kill -9 PID号 //通过PID号强制终止进程
+```
+![lsof]({{ '/styles/images/lsof.png' | prepend: site.baseurl  }})
+
+![netstat]({{ '/styles/images/netstat.png' | prepend: site.baseurl  }})
+```bash
+$ netstat -tunlp|grep 端口号 //查看22端口的使用情况
+$ kill -9 PID号 //通过PID号强制终止进程
+```
+
+**ssh远程登录**
+
+常用格式ssh [-l login_name] [-p port] [user@]hostname
+```bash
+$ ssh -p 12333 root@192.168.0.0
+```
+
+免密码登录
+
+1、生成密钥
+```bash
+$ cd ~/.ssh
+$ ls -ah //检查是否存在ssh密钥
+$ ssh-keygen -t rsa //若不存在，则执行生成密钥
+```
+
+2、放置公钥到Linux服务器
+```bash
+$ scp ~/.ssh/id_rsa.pub name@example.com:/home/example/.ssh/
+```
+
+3、将公钥内容加入到authorized_keys文件，没有则新建一个
+```bash
+#登录到远程服务器
+$ cd ~/.ssh
+$ cat -n /home/example/.ssh/id_rsa.pub >> authorized_keys
+```
+
+4、配置本地ssh config文件
+```bash
+$ vi ~/.ssh/config
+#添加以下内容
+Host example_server  #别名，域名缩写
+HostName example.com  #完整的域名
+User name  #登录该域名使用的账号名
+PreferredAuthentications publickey  #有些情况或许需要加入此句，优先验证类型ssh
+IdentityFile ~/.ssh/id_rsa #私钥文件的路径
+```
+
+**Chrome 跨域 disable-web-security 关闭安全策略**
+
+现在前后端开发分离，本地开发联调前端项目访问后端接口，很容易报跨域问题，开发时，可临时设置解决跨域。
+
+1、mac采用命令行设置
+```bash
+//chrome 浏览器
+$ open -a "Google Chrome" --args --disable-web-security  --user-data-dir
+//safari 浏览器 
+$ open -a '/Applications/Safari.app' --args --disable-web-security --user-data-dir
+```
+2、windows手动修改配置
+
+右击chrome浏览器图标打开属性-快捷方式标签在目标中添加
+
+>这里的chrome.exe 地址根据自己安装路径来, 测试过 chrome45,48,53版本。
+45版本 只需要 --disable-web-security
+48,53版本需要 额外添加 --user-data-dir
+
+```bash
+//快捷方式后面  空一格，再加上
+--disable-web-security --user-data-dir
+```
+
+![uncross]({{ '/styles/images/uncross.png' | prepend: site.baseurl  }})
+
+**显示隐藏mac文件操作**
+
+打开终端执行
+
+```bash
+$ defaults write com.apple.finder AppleShowAllFiles -bool true //显示
+$ defaults write com.apple.finder AppleShowAllFiles -bool false //隐藏
+```
+
 
 ---------
 
