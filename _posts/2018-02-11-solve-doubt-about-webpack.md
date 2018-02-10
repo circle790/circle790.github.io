@@ -23,12 +23,12 @@ webpack 作为一个现代 JavaScript 应用程序的静态模块打包器(modul
 记录
 ------------------------
 
-**output**中**path**与**publicPath**
+- **output**中**path**与**publicPath**
 
 `path`导出目录为真实绝对路径（必选项），`publicPath`为项目中的所有资源指定一个基础路径，不知道的情况下可以留空。
 [Public Path(公共路径)](http://www.css88.com/doc/webpack2/guides/public-path/)
 
-**resolve**中**alias**
+- **resolve**中**alias**
 
 设置引用的文件别名，方便引用，vue-cli中定义`'@': resolve('src')`
 例如：引用bootstrap地址简写
@@ -43,7 +43,7 @@ resolve: {
 ```
 
 
-**externals**
+- **externals**
 
 配置提供「不从 bundle 中引用依赖」的方式，防止将某些 import 包(package)打包到 bundle 中，而是在运行时(runtime)再去从外部获取这些扩展包(external package)。
 
@@ -58,7 +58,8 @@ externals: {
 </script>
 ```
 
-**plugins**
+- **plugins**
+
 `Webpack`整个生命周期使用的插件。由于 `plugin` 可以携带参数/选项，必须在 `wepback` 配置中，向 `plugins` 属性传入 `new` 实例。
 
 - new webpack.DefinePlugin(definitions)
@@ -73,7 +74,7 @@ plugins: {
 }
 ```
 
-- new webpack.ProvidePlugin
+- **new webpack.ProvidePlugin**
 
 `new webpack.ProvidePlugin({identifier1: 'module1', /* ... */})`
 
@@ -92,15 +93,15 @@ jQuery('#item'); // <= 起作用
 
 [了解更多ProvidePlugin](http://www.css88.com/doc/webpack2/plugins/provide-plugin/)
 
-- new ExtractTextPlugin
+- **new ExtractTextPlugin**
 
 提取单独css文件
 
-- new HtmlWebpackPlugin
+- **new HtmlWebpackPlugin**
 
 制定html模板动态插入js，css资源标签
 
-- new webpack.optimize.CommonsChunkPlugin
+- **new webpack.optimize.CommonsChunkPlugin**
 
 提取不同的 bundle 中所有公共模块，并且将他们加入公共 bundle 。如果公共 bundle 不存在，那么将会创建一个。
 
@@ -116,7 +117,7 @@ new webpack.optimize.CommonsChunkPlugin({
 
 [了解更多CommonsChunkPlugin](http://www.css88.com/doc/webpack2/plugins/commons-chunk-plugin/)
 
-**vendors及manifest文件**
+- **vendors及manifest文件**
 
 `vendor` 的 `hash` 在每次构建中都会改变，浏览器就重新加载文件，使用`manifest`文件可以从浏览器缓存机制中受益。
 
