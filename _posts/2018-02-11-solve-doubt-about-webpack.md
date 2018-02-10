@@ -26,7 +26,8 @@ webpack 作为一个现代 JavaScript 应用程序的静态模块打包器(modul
 - **output**中**path**与**publicPath**
 
 `path`导出目录为真实绝对路径（必选项），`publicPath`为项目中的所有资源指定一个基础路径，不知道的情况下可以留空。
-[Public Path(公共路径)](http://www.css88.com/doc/webpack2/guides/public-path/)
+
+[了解更多Public Path(公共路径)](http://www.css88.com/doc/webpack2/guides/public-path/)
 
 - **resolve**中**alias**
 
