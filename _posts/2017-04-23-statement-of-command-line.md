@@ -298,6 +298,10 @@ $ open -a '/Applications/Safari.app' --args --disable-web-security --user-data-d
 
 **显示隐藏mac文件操作**
 
+快捷键：
+`Command+Shift+.`可以显示隐藏文件、文件夹，再按一次，恢复隐藏；
+finder下使用`Command+Shift+G`可以前往任何文件夹，包括隐藏文件夹。
+
 打开终端执行
 
 ```bash
