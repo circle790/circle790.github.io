@@ -227,6 +227,7 @@ const validator = {
 
 ---------
 持续更新...
+
 查看[前端常用属性、方法备忘](http://justyeh.com/post/28)
 
 ---------
