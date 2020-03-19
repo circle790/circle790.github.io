@@ -89,6 +89,20 @@ SVG中有四个主要的元素用于在文档中定义、结构化和引用SVG�
 ```
 
 
+SVG-<foreignObject>
+------------------------
+
+`<foreignObject>`SVG元素允许包含不同的XML命名空间。借助`<foreignObject>`标签，我们可以直接在SVG内部嵌入XHTML元素。
+
+```html
+<!--svg使用rem尺寸缩放-->
+<svg viewBox="0,0,845,360" class="ani-flying">
+  <foreignObject class="ani-flying-html">
+    <div ref="aniFlying" class="ani-flying-pic"></div>
+  </foreignObject>
+</svg>
+```
+
 SVG样式
 ------------------------
 
